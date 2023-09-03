@@ -11,6 +11,7 @@ func main() {
 	//	go gerate ./orm/ent
 	//ent.TestEnt()
 
+	//  sqlboiler psql
 	sqlBoilerTest()
 }
 
