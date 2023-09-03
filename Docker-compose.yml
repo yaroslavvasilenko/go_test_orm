@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  db:
+    container_name: ${APP_NAME}db
+    image: postgres:14.4-alpine
+    restart: always
+    volumes:
+      - db-data:/root/telegram_sessions
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "127.0.0.1:5432:5432"
+    networks:
+      - skynet
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  telegram-data:
+  db-data:
+networks:
+  skynet:
