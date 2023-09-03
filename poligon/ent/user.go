@@ -49,7 +49,7 @@ func testUser(clientEnt *my_ent.ClientEnt) {
 	}
 	fmt.Println(userBD)
 
-	userBD, err = clientEnt.Read(1)
+	userBD, err = clientEnt.Read(userBD)
 	if err != nil {
 		panic(err)
 	}

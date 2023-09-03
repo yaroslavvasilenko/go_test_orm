@@ -28,8 +28,12 @@ func (e *ClientEnt) Update(user *ent.User) (*ent.User, error) {
 	return newUser, nil
 
 }
-func (e *ClientEnt) Read(userID int) (*ent.User, error) {
-	userNew, err := e.Ent.User.Get(context.Background(), userID)
+func (e *ClientEnt) Read(user *ent.User) (*ent.User, error) {
+	userNew, err := e.Ent.User.Get(context.Background(), user.ID)
+	//e.Ent.User.Query().Where(func(selector *sql.Selector) {
+	//	selector.Where(sql.Like(user.Name, "%Niko%"))
+	//
+	//})
 	if err != nil {
 		return nil, err
 	}
