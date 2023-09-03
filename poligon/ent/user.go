@@ -23,10 +23,11 @@ func testUser(clientEnt *my_ent.ClientEnt) {
 	}
 
 	ord := &gen_ent.Order{
-		ID:     1,
-		Name:   "qweqe",
-		Amount: 23,
-		Price:  55,
+		ID:           1,
+		Name:         "qweqe",
+		Amount:       23,
+		Price:        55,
+		UserOrdersID: 1,
 	}
 
 	userBD, err := clientEnt.Create(&us)
@@ -35,7 +36,7 @@ func testUser(clientEnt *my_ent.ClientEnt) {
 	}
 	fmt.Println(userBD)
 
-	newOrd, err := clientEnt.CreateOrderForUser(ord, userBD.ID)
+	newOrd, err := clientEnt.CreateOrderForUser(ord)
 	if err != nil {
 		panic(err)
 	}
